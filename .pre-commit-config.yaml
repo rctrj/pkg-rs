@@ -1,0 +1,33 @@
+fail_fast: true
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+        args:
+          - --allow-multiple-documents
+      - id: check-toml
+      - id: check-json
+      - id: check-xml
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: no-commit-to-branch
+        args:
+          - --branch
+          - master
+          - --branch
+          - main
+          - --branch
+          - ^(?!((feature|bugfix|improvement|library|release|hotfix|tools|setup)\/[a-zA-Z0-9\-]+)$).*
+
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+        args: [ '--verbose', '--' ]
+      - id: clippy
+      - id: cargo-check
