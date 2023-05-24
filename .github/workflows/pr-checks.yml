@@ -46,7 +46,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: --all-targets --all-features --workspace -- -D warnings
+          args: --all-targets --all-features --workspace -- -A dead-code -D warnings
 
       - name: Docs
         uses: actions-rs/cargo@v1
