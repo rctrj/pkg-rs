@@ -1,4 +1,4 @@
-use std::{fmt::format, str::FromStr};
+use std::str::FromStr;
 
 use config::{Config, Environment, File};
 use dotenv::dotenv;
