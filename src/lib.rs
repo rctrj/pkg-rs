@@ -1,3 +1,3 @@
-#[cfg(feature = "config")] mod config;
-#[cfg(feature = "server")] mod server;
-#[cfg(feature = "telemetry")] mod telemetry;
+#[cfg(feature = "config")] pub mod config;
+#[cfg(feature = "server")] pub mod server;
+#[cfg(feature = "telemetry")] pub mod telemetry;
