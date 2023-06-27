@@ -8,7 +8,7 @@ pub mod common_routes;
 
 #[derive(Debug, Default, DisplayUsingDebug, Copy, Clone, Eq, PartialEq, Deserialize, Serialize)]
 pub struct Config {
-    port: u16
+    port: u16,
 }
 
 pub async fn start(config: Config, app: Router) {
@@ -30,7 +30,7 @@ async fn shutdown_signal() {
     };
 
     #[cfg(unix)]
-        let terminate = async {
+    let terminate = async {
         signal::unix::signal(signal::unix::SignalKind::terminate())
             .expect("failed to install signal handler")
             .recv()
@@ -38,7 +38,7 @@ async fn shutdown_signal() {
     };
 
     #[cfg(not(unix))]
-        let terminate = std::future::pending();
+    let terminate = std::future::pending();
 
     tokio::select! {
         _ = ctrl_c => {}
