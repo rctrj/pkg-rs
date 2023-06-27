@@ -1,4 +1,4 @@
-use proc_macros::DisplayUsingDebug;
+use proc_macros_rs::DisplayUsingDebug;
 use serde::{Deserialize, Serialize};
 use strum::Display;
 use tracing::{level_filters::LevelFilter, subscriber::set_global_default};
