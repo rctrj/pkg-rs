@@ -6,6 +6,7 @@ use serde::Deserialize;
 use strum::{self, Display, EnumString};
 
 #[derive(Copy, Clone, Debug, Display, Eq, PartialEq, EnumString)]
+#[strum(serialize_all = "lowercase")]
 pub enum Env {
     Test,
     Dev,
@@ -39,7 +40,7 @@ pub fn parse<'a, T: Deserialize<'a>>(dir: &str) -> anyhow::Result<T> {
     let env = curr_env();
     let dir = resolve_path(dir);
 
-    let file_name = format!("{dir})/{env}.yml");
+    let file_name = format!("{dir}/{env}.yml");
     let env_conf = Environment::default().separator("_");
 
     let config = Config::builder()
