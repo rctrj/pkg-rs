@@ -15,7 +15,7 @@ pub enum Env {
 }
 
 pub fn curr_env() -> Env {
-    let env_str = std::env::var("env").expect("env not set");
+    let env_str = std::env::var("ENV").expect("env not set");
     Env::from_str(env_str.as_str()).unwrap_or_else(|_| panic!("unrecognized env: {env_str}"))
 }
 
