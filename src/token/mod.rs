@@ -9,7 +9,7 @@ pub struct JwtToken {
 }
 
 impl JwtToken {
-    pub fn new(signing_key: String) -> Result<Self> {
+    pub fn new(signing_key: &str) -> Result<Self> {
         let signing_key: Hmac<Sha256> = Hmac::new_from_slice(signing_key.as_ref())?;
         Ok(Self { signing_key })
     }
