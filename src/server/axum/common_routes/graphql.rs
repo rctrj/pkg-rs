@@ -1,10 +1,10 @@
 #[macro_export]
 macro_rules! graphql_handler {
-    ($schema_name: ident) => {
+    ($method_name: ident, $schema_name: ident) => {
         use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
         use axum::extract::Extension;
 
-        pub(crate) async fn graphql_handler(
+        pub(crate) async fn $method_name(
             schema: axum::extract::Extension<$schema_name>,
             req: GraphQLRequest,
         ) -> GraphQLResponse {
