@@ -4,6 +4,7 @@ use jwt::{FromBase64, Header, SignWithKey, Token, VerifyWithKey};
 use serde::Serialize;
 use sha2::Sha256;
 
+#[derive(Clone)]
 pub struct JwtToken {
     signing_key: Hmac<Sha256>,
 }
