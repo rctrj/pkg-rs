@@ -3,4 +3,5 @@
 #[cfg(feature = "telemetry")] pub mod telemetry;
 #[cfg(feature = "token")] pub mod token;
 
+pub mod errors;
 pub mod utils;

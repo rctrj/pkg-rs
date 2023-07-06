@@ -1,8 +1,9 @@
-use anyhow::Result;
 use hmac::{Hmac, Mac};
 use jwt::{FromBase64, Header, SignWithKey, Token, VerifyWithKey};
 use serde::Serialize;
 use sha2::Sha256;
+
+use crate::errors::{map_err, Result};
 
 #[derive(Clone)]
 pub struct JwtToken {
@@ -11,7 +12,8 @@ pub struct JwtToken {
 
 impl JwtToken {
     pub fn new(signing_key: &str) -> Result<Self> {
-        let signing_key: Hmac<Sha256> = Hmac::new_from_slice(signing_key.as_ref())?;
+        let signing_key: Hmac<Sha256> =
+            Hmac::new_from_slice(signing_key.as_ref()).map_err(map_err)?;
         Ok(Self { signing_key })
     }
 
