@@ -18,6 +18,7 @@ pub type Result<T> = std::result::Result<T, Error>;
 pub enum Error {
     NotFound(NotFoundError),
     AlreadyExists(AlreadyExistsError),
+    Malformed(String),
 
     Unhandled(Box<dyn StdErr>),
 }
