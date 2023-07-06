@@ -1,5 +1,6 @@
-use anyhow::Result;
 use proc_macros_rs::DisplayUsingDebug;
+
+use crate::errors::Result;
 
 #[derive(Clone, Debug, DisplayUsingDebug)]
 pub struct UserAgent {

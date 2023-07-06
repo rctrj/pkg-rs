@@ -5,6 +5,8 @@ use dotenv::dotenv;
 use serde::Deserialize;
 use strum::{self, Display, EnumString};
 
+use crate::errors::Result;
+
 #[derive(Copy, Clone, Debug, Display, Eq, PartialEq, EnumString)]
 #[strum(serialize_all = "lowercase")]
 pub enum Env {
@@ -34,7 +36,7 @@ pub fn parse_or_panic<'a, T: Deserialize<'a>>(dir: &str) -> T {
     }
 }
 
-pub fn parse<'a, T: Deserialize<'a>>(dir: &str) -> anyhow::Result<T> {
+pub fn parse<'a, T: Deserialize<'a>>(dir: &str) -> Result<T> {
     dotenv().ok();
 
     let env = curr_env();

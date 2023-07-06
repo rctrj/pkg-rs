@@ -6,11 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = { version = "1.0.70", optional = true }
 async-graphql = { version = "5.0.7", optional = true }
 async-graphql-axum = { version = "5.0.7", optional = true }
 axum = { version = "0.6.12", optional = true }
 config = { version = "0.13.3", optional = true }
+diesel = { version = "2.1.0", optional = true }
 dotenv = { version = "0.15.0", optional = true }
 hmac = { version = "0.12.1", optional = true }
 jwt = { version = "0.16.0", optional = true }
@@ -31,6 +31,6 @@ proc-macros-rs.git = "https://github.com/rctrj/proc-macros-rs.git"
 default = ["tracing/log"]
 
 server = ["async-graphql", "async-graphql-axum", "axum", "serde/derive", "tokio/signal", "tokio/macros"]
-conf = ["anyhow", "config/default", "dotenv", "serde/derive", "strum/derive"]
+conf = ["config/default", "dotenv", "serde/derive", "strum/derive"]
 telemetry = ["serde/derive", "strum/derive", "tracing/log", "tracing-log", "tracing-subscriber/json", "conf"]
-token = ["anyhow", "hmac", "jwt", "serde", "sha2"]
+token = ["hmac", "jwt", "serde", "sha2"]
