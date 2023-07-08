@@ -21,6 +21,7 @@ macro_rules! map_err {
 
 map_err!("config", config, config::ConfigError);
 map_err!("jwt", jwt, jwt::Error);
+map_err!("mongodb", mongodb, mongodb::error::Error);
 map_err!("phonenumber", phonenumber, phonenumber::ParseError);
 map_err!("fast_uaparser", fast_uaparser, fast_uaparser::ParserError);
 

@@ -32,6 +32,7 @@ pub enum MetaData {
     UserId(i32),
     DeviceId(String),
     App(String),
+    DocumentId(String),
 }
 
 #[derive(Debug)]
@@ -46,6 +47,9 @@ pub enum Resource {
     User,
     UserDevice,
     UserAgent,
+    Topic,
+    TopicChoice,
+    TopicChoiceOpinion,
 }
 
 #[derive(Debug)]
